@@ -5,11 +5,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from taskmanager.models import Tasks
 
 # Create your views here.
 @login_required(login_url='login')
 def home(request):
-    return render(request,"accounts/home.html",{})
+    alltasks = Tasks.objects.all()
+    return render(request,"accounts/home.html",{"alltasks": alltasks})
 
 def register(request):
     registered = False

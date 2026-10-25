@@ -1,21 +1,23 @@
 {% extends 'accounts/base.html' %}
-
 {% load static %}
 
-{% load crispy_forms_tags %}
-
 {% block content %}
-<br>
-<body id="bg" style="background-image: url('{% static "images/todolist.webp"%}')";>
-<div class="container">
-    <div class="jumbotron">
-        <div class="button-container">
-            <h1>Which one you need to track</h1><br>
-            <p><a class="btn btn-primary" href="{% url 'calori:food' %}">CaloriTracker</a></p>
-            <p><a class="btn btn-primary" href="{% url 'expense:expense' %}">ExpenseTracker</a></p>
-            <p><a class="btn btn-primary" href="{% url 'taskmanager:task' %}">TaskManager</a></p>
-        </div>
+
+<div class="home-background">
+    <div class="home-content">
+        <h1>Which one do you need to track?</h1>    <div class="button-container">
+        <a class="tracker-btn" href="{% url 'calori:food' %}">
+            Calorie Tracker
+        </a>
+
+        <a class="tracker-btn" href="{% url 'expense:expense' %}">
+            Expense Tracker
+        </a>
+
+        <a class="tracker-btn" href="{% url 'taskmanager:task' %}">
+            Task Manager
+        </a>
     </div>
-</div>  
-<body>
-{% endblock %}
+</div>
+
+</div>{% endblock %}
